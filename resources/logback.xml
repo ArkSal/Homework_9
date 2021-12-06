@@ -7,7 +7,8 @@
                 %d{yyyy-MM-dd HH:mm} %highlight(%-5level) - %highlight( %msg%n)
             </Pattern>
         </layout>
-    </appender>>
+    </appender>
+    >
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${DEV_HOME}/logFile_${bySecond}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">

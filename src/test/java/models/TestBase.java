@@ -1,41 +1,43 @@
 package models;
 
-import helpers.FileHandler;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import handlers.FileHandler;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import handlers.DriverFactory;
+import handlers.PropertiesManager;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.time.Duration;
 
 public class TestBase {
-    protected WebDriver driver;
     private static Logger logger = LoggerFactory.getLogger(TestBase.class);
+    private static final String browserType = "browser";
+    protected WebDriver driver;
+    protected Actions actions;
+    protected WebDriverWait wait;
 
     @BeforeAll
     static void setDriver() {
-        WebDriverManager.chromedriver().setup();
+        DriverFactory.getDriver(Browsers.valueOf(PropertiesManager.getStringProperty(browserType)));
         logger.info("WebDriver initialized");
         FileHandler.createDirectory();
-        logger.info("Download files directory created");
+        logger.info("Download files directories created");
     }
 
     @BeforeEach
-    void setup() {
-        Map<String, Object> prefs = new HashMap<>();
-        prefs.put("download.default_directory", FileHandler.getDownloadFile().getAbsolutePath());
-        ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("prefs", prefs);
-        options.addArguments("--start-maximized");
-        options.addArguments("--disable-popup-blocking");
-        driver = new ChromeDriver(options);
+    void setUp() {
+        driver = DriverFactory.getDriverOptions(Browsers.valueOf(PropertiesManager.getStringProperty(browserType)));
         logger.info("Driver initialized with additional options");
+        actions = new Actions(driver);
+        logger.info("Action initialized");
+        Long waitValue = Long.valueOf(PropertiesManager.getStringProperty("waitValue"));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(waitValue));
+        logger.info("WaitDriver with " + waitValue + "secs value initialized");
     }
 
     @AfterEach

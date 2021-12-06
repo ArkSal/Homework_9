@@ -1,6 +1,7 @@
 package basic.tests;
 
-import helpers.FileHandler;
+import handlers.FileHandler;
+import providers.RandomDataGenerator;
 import models.TestBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -10,7 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import helpers.*;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -34,12 +35,12 @@ public class FormTest extends TestBase {
         driver.findElement(By.cssSelector("#inputLastName3")).sendKeys("Miszcz");
         driver.findElement(By.cssSelector("#inputEmail3")).sendKeys("mistrz@gmail.com");
         List<WebElement> gender = driver.findElements(By.cssSelector("[name=gridRadiosSex]"));
-        gender.get(RandomGeneratorHandler.randomFunction(3)).click();
-        driver.findElement(By.cssSelector("#inputAge3")).sendKeys("30");
-        driver.findElement(By.cssSelector("#gridRadios" + RandomGeneratorHandler.randomFunction(7))).click();
+        gender.get(RandomDataGenerator.randomFunction(2)).click();
+        driver.findElement(By.cssSelector("#inputAge3")).sendKeys(String.valueOf(RandomDataGenerator.randomFunction(2, 20)));
+        driver.findElement(By.cssSelector("#gridRadios" + RandomDataGenerator.randomFunction(1, 7))).click();
         driver.findElement(By.cssSelector("#gridCheckAutomationTester")).click();
         List<WebElement> continents = driver.findElements(By.xpath("//*[@id='selectContinents']//option"));
-        continents.get(RandomGeneratorHandler.randomFunction(2, continents.size() - 1)).click();
+        continents.get(RandomDataGenerator.randomFunction(2, continents.size() - 1)).click();
         driver.findElement(By.cssSelector("option[value='switch-commands']")).click();
         driver.findElement(By.cssSelector("option[value='wait-commands']")).click();
         driver.findElement(By.cssSelector("#chooseFile")).sendKeys(FileHandler.fileToLoadPath());
