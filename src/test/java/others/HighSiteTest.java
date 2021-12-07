@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import providers.SimpleMethodsProvider;
+import providers.SimpleMethodProvider;
 
 public class HighSiteTest extends TestBase {
     Logger logger = LoggerFactory.getLogger(HighSiteTest.class);
@@ -21,7 +21,7 @@ public class HighSiteTest extends TestBase {
 
     @Test
     void highSiteTest() {
-        SimpleMethodsProvider.scrollDownUntilVisible(By.cssSelector("#scroll-button"), driver, actions);
+        SimpleMethodProvider.scrollDownUntilVisible(By.cssSelector("#scroll-button"), driver, actions);
         logger.info("Scrolled down until button was visible.");
         FileHandler.takeScreenshot(driver);
         logger.info("Screenshot has been taken");

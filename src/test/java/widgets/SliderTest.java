@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import providers.SimpleMethodsProvider;
+import providers.SimpleMethodProvider;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,7 +30,7 @@ public class SliderTest extends TestBase {
         int currentSliderPosition = 0;
 
         for (int nextSliderPosition : sliderPositionsToMove) {
-            actions.dragAndDropBy(sliderElement, SimpleMethodsProvider
+            actions.dragAndDropBy(sliderElement, SimpleMethodProvider
                             .moveSlider(currentSliderPosition, nextSliderPosition, WHOLE_SLIDER_WIDTH, SLIDER_ICON_WIDTH), 0)
                     .build()
                     .perform();

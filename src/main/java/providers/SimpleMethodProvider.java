@@ -8,8 +8,8 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 // Dziwna nazwa tej klasy
 
-public class SimpleMethodsProvider {
-    private static Logger logger = LoggerFactory.getLogger(SimpleMethodsProvider.class);
+public class SimpleMethodProvider {
+    private static Logger logger = LoggerFactory.getLogger(SimpleMethodProvider.class);
 
     public static void tableSearch(WebDriver driver) {
         List<WebElement> tableRows = driver.findElements(By.cssSelector("tbody tr"));
@@ -56,4 +56,7 @@ public class SimpleMethodsProvider {
     public static void clickRandomElementFromList(List<WebElement> elementsList){
         elementsList.get(RandomDataGenerator.randomFunction(elementsList.size()-1)).click();
     }
+
+
+
 }

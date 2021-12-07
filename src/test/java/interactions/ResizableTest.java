@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import providers.SimpleMethodsProvider;
+import providers.SimpleMethodProvider;
 
 public class ResizableTest extends TestBase {
     Logger logger = LoggerFactory.getLogger(ResizableTest.class);
@@ -21,9 +21,9 @@ public class ResizableTest extends TestBase {
     @Test
     void resizableTest() {
         WebElement gripIcon = driver.findElement(By.cssSelector(".ui-icon"));
-        SimpleMethodsProvider.resizeElement(actions, gripIcon, 10, 0);
-        SimpleMethodsProvider.resizeElement(actions, gripIcon, 0, 10);
-        SimpleMethodsProvider.resizeElement(actions, gripIcon, 10, 10);
+        SimpleMethodProvider.resizeElement(actions, gripIcon, 10, 0);
+        SimpleMethodProvider.resizeElement(actions, gripIcon, 0, 10);
+        SimpleMethodProvider.resizeElement(actions, gripIcon, 10, 10);
         logger.info("Resizable test completed");
     }
 }

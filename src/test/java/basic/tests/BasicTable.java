@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import providers.SimpleMethodsProvider;
+import providers.SimpleMethodProvider;
 
 public class BasicTable extends TestBase {
     private Logger logger = LoggerFactory.getLogger(BasicTable.class);
@@ -18,7 +18,7 @@ public class BasicTable extends TestBase {
 
     @Test
     void tablePractise(){
-        SimpleMethodsProvider.tableSearch(driver);
+        SimpleMethodProvider.tableSearch(driver);
         logger.info("Window switched");
     }
 }
