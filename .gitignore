@@ -60,6 +60,8 @@ cmake-build-*/
 *.iws
 # IntelliJ
 out/
+downloadedTestFiles/
+screenshotDirectory/
 target/
 .idea/
 # mpeltonen/sbt-idea plugin
