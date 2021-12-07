@@ -32,9 +32,9 @@ public class DriverFactory {
         }
     }
 
-/*     tutaj można tez w inny sposó. Mieć abstract klase basicDriver i podstawowe metody
-     i zrobić klasy dziedziczące chromedriver i firefoxdriver i w getDriverOptions polimorfizmem robić return odpowienidego drivera
-            ale ta metoda chyba ładniejsza*/
+    /*     tutaj można tez w inny sposó. Mieć abstract klase basicDriver i podstawowe metody
+         i zrobić klasy dziedziczące chromedriver i firefoxdriver i w getDriverOptions polimorfizmem robić return odpowienidego drivera
+                ale ta metoda chyba ładniejsza*/
     private static WebDriver getChromeDriver() {
         Map<String, Object> prefs = new HashMap<>() {{
             put("download.default_directory", FileHandler.getDownloadFile().getAbsolutePath());

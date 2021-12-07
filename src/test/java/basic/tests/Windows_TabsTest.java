@@ -25,14 +25,14 @@ public class Windows_TabsTest extends TestBase {
     }
 
     @Test
-    void newMessageWindow(){
+    void newMessageWindow() {
         driver.findElement(By.cssSelector("#newMessageWindow")).click();
         SimpleMethodProvider.windowSwitch(driver);
         System.out.println(driver.findElement(By.cssSelector("body")).getText());
     }
 
     @Test
-    void newBrowserTab(){
+    void newBrowserTab() {
         driver.findElement(By.cssSelector("#newBrowserTab")).click();
         SimpleMethodProvider.windowSwitch(driver);
         SimpleMethodProvider.tableSearch(driver);

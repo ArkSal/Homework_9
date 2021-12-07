@@ -21,7 +21,7 @@ public class SelectMenuTest extends TestBase {
     }
 
     @Test
-    void selectMenuTest(){
+    void selectMenuTest() {
         driver.findElement(By.cssSelector("#speed-button")).click();
         List<WebElement> speedElements = driver.findElements(By.cssSelector("#speed-menu li"));
         SimpleMethodProvider.clickRandomElementFromList(speedElements);

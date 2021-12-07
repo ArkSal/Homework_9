@@ -2,17 +2,17 @@ package widgets;
 
 import models.TestBase;
 import models.User;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.samePropertyValuesAs;
 
 public class ModalDialogTest extends TestBase {
     Logger logger = LoggerFactory.getLogger(ModalDialogTest.class);
@@ -24,7 +24,7 @@ public class ModalDialogTest extends TestBase {
     }
 
     @Test
-    void modalDialogTest(){
+    void modalDialogTest() {
         User newUser = new User("Arek Darek", "mail@temporary.net", "trudnEHaslo");
         createUserInWebsite(newUser);
         List<WebElement> newUserData = driver.findElements(By.cssSelector("tbody tr:last-of-type td"));

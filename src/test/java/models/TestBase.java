@@ -1,6 +1,8 @@
 package models;
 
+import handlers.DriverFactory;
 import handlers.FileHandler;
+import handlers.PropertiesManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,8 +11,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import handlers.DriverFactory;
-import handlers.PropertiesManager;
 
 import java.time.Duration;
 

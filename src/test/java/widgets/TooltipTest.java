@@ -16,7 +16,7 @@ public class TooltipTest extends TestBase {
     }
 
     @Test
-    void toolTipTest(){
+    void toolTipTest() {
         logger.info("Test completed");
     }
 }

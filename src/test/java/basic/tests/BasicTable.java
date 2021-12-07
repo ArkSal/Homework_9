@@ -11,13 +11,13 @@ public class BasicTable extends TestBase {
     private Logger logger = LoggerFactory.getLogger(BasicTable.class);
 
     @BeforeEach
-    void testSetUp(){
+    void testSetUp() {
         driver.get("https://seleniumui.moderntester.pl/table.php");
         logger.info("Site window opened");
     }
 
     @Test
-    void tablePractise(){
+    void tablePractise() {
         SimpleMethodProvider.tableSearch(driver);
         logger.info("Window switched");
     }

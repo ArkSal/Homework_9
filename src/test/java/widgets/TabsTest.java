@@ -16,7 +16,7 @@ public class TabsTest extends TestBase {
     }
 
     @Test
-    void tabsTest(){
+    void tabsTest() {
         logger.info("Test completed");
     }
 }

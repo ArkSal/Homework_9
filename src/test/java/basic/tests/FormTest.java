@@ -1,7 +1,6 @@
 package basic.tests;
 
 import handlers.FileHandler;
-import providers.RandomDataGenerator;
 import models.TestBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import providers.RandomDataGenerator;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;

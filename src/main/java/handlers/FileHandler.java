@@ -54,11 +54,11 @@ public class FileHandler {
         return false;
     }
 
-    public static void takeScreenshot(WebDriver driver){
+    public static void takeScreenshot(WebDriver driver) {
         //tak śrendio pdoobaq mi się ta metoda w tej klasie
         File scr = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(scr, new File(projectPath+ screenShotDirectory + "/screenshot.png" ));
+            FileUtils.copyFile(scr, new File(projectPath + screenShotDirectory + "/screenshot.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

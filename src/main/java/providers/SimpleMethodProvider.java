@@ -26,18 +26,18 @@ public class SimpleMethodProvider {
         logger.info("Table search method done");
     }
 
-    public static void windowSwitch(WebDriver driver){
-        for (String winHandle: driver.getWindowHandles()) {
+    public static void windowSwitch(WebDriver driver) {
+        for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
         }
     }
 
-    public static void resizeElement(Actions actions, WebElement elementToResize, int xSet, int ySet){
-        actions.dragAndDropBy(elementToResize,25+xSet, 25+ySet).build().perform();
+    public static void resizeElement(Actions actions, WebElement elementToResize, int xSet, int ySet) {
+        actions.dragAndDropBy(elementToResize, 25 + xSet, 25 + ySet).build().perform();
         logger.info("Element resized by " + xSet + " in X axis and by " + ySet + " in Y axis.");
     }
 
-    public static boolean scrollDownUntilVisible(By locator, WebDriver driver, Actions actions){
+    public static boolean scrollDownUntilVisible(By locator, WebDriver driver, Actions actions) {
         //  tu mozna też zrobić bez rekurencji. przy wywołaniu metody wystarczy dać while(scrollDownmethod){}
         // można też użyć js excecutor tutaj, ale to chyba bez różnicy, tyle, że w JS moozna robić większe "kroki"
         try {
@@ -53,10 +53,9 @@ public class SimpleMethodProvider {
         return sliderWidth * (currentStep - lastStep) / 100 - (sliderSize / 3);
     }
 
-    public static void clickRandomElementFromList(List<WebElement> elementsList){
-        elementsList.get(RandomDataGenerator.randomFunction(elementsList.size()-1)).click();
+    public static void clickRandomElementFromList(List<WebElement> elementsList) {
+        elementsList.get(RandomDataGenerator.randomFunction(elementsList.size() - 1)).click();
     }
-
 
 
 }

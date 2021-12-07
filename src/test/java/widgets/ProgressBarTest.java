@@ -20,9 +20,9 @@ public class ProgressBarTest extends TestBase {
     }
 
     @Test
-    void progressBarTest(){
+    void progressBarTest() {
         WebElement progressBar = driver.findElement(By.cssSelector("#progressbar"));
-        WaitMethodsProvider.waitForTextToBePresented(wait, progressBar,"Complete!");
+        WaitMethodsProvider.waitForTextToBePresented(wait, progressBar, "Complete!");
         Assertions.assertEquals(progressBar.getText(), "Complete!");
         logger.info("Test completed");
     }

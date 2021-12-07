@@ -56,7 +56,7 @@ public class DatePickerTest extends TestBase {
         DatesHandler.goToCorrectMonthInCalendar(wait, dateFieldText, prevIconLocator, nextIconLocator, monthsDifference);
         DatesHandler.clickCorrectDay(lastDayOfJanuaryNextYear, wait);
         Assertions.assertEquals(DatesHandler.
-                getFormattedDateAsString(lastDayOfJanuaryNextYear),  DatesHandler.getDateFieldTextValue(dateFieldText));
+                getFormattedDateAsString(lastDayOfJanuaryNextYear), DatesHandler.getDateFieldTextValue(dateFieldText));
         logger.info("Date read from text field: " + DatesHandler.getDateFieldTextValue(dateFieldText));
 
         logger.info("Validating if last day of next January is set correctly");
@@ -65,17 +65,17 @@ public class DatePickerTest extends TestBase {
         DatesHandler.goToCorrectMonthInCalendar(wait, dateFieldText, prevIconLocator, nextIconLocator, monthsDifference);
         DatesHandler.clickCorrectDay(lastDayOfJanuaryNextYear, wait);
         Assertions.assertEquals(DatesHandler.
-                getFormattedDateAsString(lastDayOfJanuaryNextYear),  DatesHandler.getDateFieldTextValue(dateFieldText));
+                getFormattedDateAsString(lastDayOfJanuaryNextYear), DatesHandler.getDateFieldTextValue(dateFieldText));
         logger.info("Date read from text field: " + DatesHandler.getDateFieldTextValue(dateFieldText));
 
         logger.info("Validating if random date from last month is set correctly");
         LocalDate randomDateLastMonth = DatesHandler.getLastMonthRandomDate();
         monthsDifference = DatesHandler.
                 getMonthsDifferenceBetweenDates(DatesHandler.getDateFromTextField(dateFieldText), randomDateLastMonth);
-        DatesHandler.goToCorrectMonthInCalendar(wait, dateFieldText ,prevIconLocator, nextIconLocator, monthsDifference);
+        DatesHandler.goToCorrectMonthInCalendar(wait, dateFieldText, prevIconLocator, nextIconLocator, monthsDifference);
         DatesHandler.clickCorrectDay(randomDateLastMonth, wait);
         Assertions.assertEquals(DatesHandler.
-                getFormattedDateAsString(randomDateLastMonth),  DatesHandler.getDateFieldTextValue(dateFieldText));
+                getFormattedDateAsString(randomDateLastMonth), DatesHandler.getDateFieldTextValue(dateFieldText));
         logger.info("Date read from text field: " + DatesHandler.getDateFieldTextValue(dateFieldText));
 
         logger.info("Validating if random date from last year is set correctly");
@@ -85,15 +85,12 @@ public class DatePickerTest extends TestBase {
         DatesHandler.goToCorrectMonthInCalendar(wait, dateFieldText, prevIconLocator, nextIconLocator, monthsDifference);
         DatesHandler.clickCorrectDay(randomDateFromLAstYear, wait);
         Assertions.assertEquals(DatesHandler.
-                getFormattedDateAsString(randomDateFromLAstYear),  DatesHandler.getDateFieldTextValue(dateFieldText));
+                getFormattedDateAsString(randomDateFromLAstYear), DatesHandler.getDateFieldTextValue(dateFieldText));
         logger.info("Date read from text field: " + DatesHandler.getDateFieldTextValue(dateFieldText));
-
 
 
         logger.info("Test completed");
     }
-
-
 
 
 }

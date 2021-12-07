@@ -16,7 +16,7 @@ public class SpinnerTest extends TestBase {
     }
 
     @Test
-    void spinnerTest(){
+    void spinnerTest() {
         logger.info("Test completed");
     }
 }

@@ -1,7 +1,6 @@
 package handlers;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -16,11 +15,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DatesHandler {
     private static Logger logger = LoggerFactory.getLogger(DatesHandler.class);
 
-    public static String getFormattedDateAsString(LocalDate date){
+    public static String getFormattedDateAsString(LocalDate date) {
         return date.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
     }
 
-    public static LocalDate getRandomDateInRange(LocalDate startInclusive, LocalDate endExclusive){
+    public static LocalDate getRandomDateInRange(LocalDate startInclusive, LocalDate endExclusive) {
         long startEpochDay = startInclusive.toEpochDay();
         long endEpochDay = endExclusive.toEpochDay();
         long randomDay = ThreadLocalRandom
@@ -30,20 +29,19 @@ public class DatesHandler {
         return LocalDate.ofEpochDay(randomDay);
     }
 
-    public static long getMonthsDifferenceBetweenDates(LocalDate firstDate, LocalDate secondDate){
-        return  ChronoUnit.MONTHS.between(
+    public static long getMonthsDifferenceBetweenDates(LocalDate firstDate, LocalDate secondDate) {
+        return ChronoUnit.MONTHS.between(
                 firstDate.withDayOfMonth(1),
                 secondDate.withDayOfMonth(1));
     }
 
-    public static void goToCorrectMonthInCalendar(WebDriverWait wait, WebElement element,By previousMonthIcon, By nextMonthIcon, long monthsDifference){
+    public static void goToCorrectMonthInCalendar(WebDriverWait wait, WebElement element, By previousMonthIcon, By nextMonthIcon, long monthsDifference) {
         element.click();
-        if(monthsDifference>0){
+        if (monthsDifference > 0) {
             for (int i = 0; i < monthsDifference; i++) {
                 WaitMethodsProvider.getElementWhenClickable(wait, nextMonthIcon).click();
             }
-        }
-        else if(monthsDifference<0){
+        } else if (monthsDifference < 0) {
             long absOfDifferenceValue = Math.abs(monthsDifference);
             for (int i = 0; i < absOfDifferenceValue; i++) {
                 WaitMethodsProvider.getElementWhenClickable(wait, previousMonthIcon).click();
@@ -51,13 +49,13 @@ public class DatesHandler {
         }
     }
 
-    public static void clickCorrectDay(LocalDate date,WebDriverWait wait) {
+    public static void clickCorrectDay(LocalDate date, WebDriverWait wait) {
         WaitMethodsProvider.getElementWhenClickable(wait, By.xpath
                 ("//*[@data-month='" + (date.getMonthValue() - 1) + "']//a[.='" + date.getDayOfMonth() + "']")).click();
         logger.info("Correct date selected on the calendar");
     }
 
-    public static String getDateFieldTextValue(WebElement element){
+    public static String getDateFieldTextValue(WebElement element) {
         return element.getAttribute("value");
     }
 
@@ -78,7 +76,7 @@ public class DatesHandler {
         return randomDateLastMonth;
     }
 
-    public static LocalDate getDateFromTextField(WebElement element){
+    public static LocalDate getDateFromTextField(WebElement element) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return LocalDate.parse(getDateFieldTextValue(element), formatter);
     }

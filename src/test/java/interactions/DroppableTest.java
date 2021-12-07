@@ -13,13 +13,13 @@ public class DroppableTest extends TestBase {
     Logger logger = LoggerFactory.getLogger(DroppableTest.class);
 
     @BeforeEach
-    void testSetup(){
+    void testSetup() {
         driver.get("https://seleniumui.moderntester.pl/droppable.php");
         logger.info("Site window opened");
     }
 
     @Test
-    void droppableTest(){
+    void droppableTest() {
         WebElement droppableElement = driver.findElement(By.cssSelector("#droppable"));
         actions.dragAndDrop(driver.findElement(By.cssSelector("#draggable")),
                 droppableElement).build().perform();
