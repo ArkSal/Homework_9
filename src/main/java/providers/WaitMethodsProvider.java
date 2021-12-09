@@ -16,7 +16,7 @@ public class WaitMethodsProvider {
         wait.until(ExpectedConditions.attributeContains(element, param, value));
     }
 
-    public static WebElement getElementWhenClickable(WebDriverWait wait, By locator) {
+    public static WebElement getElementWhenClickableByLocator(WebDriverWait wait, By locator) {
         return wait.until(ExpectedConditions.
                 elementToBeClickable(locator));
     }
@@ -28,5 +28,9 @@ public class WaitMethodsProvider {
 
     public static void waitUntilAlertIsPresented(WebDriverWait wait) {
         wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+    public static WebElement getElementWhenClickable(WebDriverWait wait, WebElement element){
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }

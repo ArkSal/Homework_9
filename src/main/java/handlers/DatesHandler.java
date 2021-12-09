@@ -39,18 +39,18 @@ public class DatesHandler {
         element.click();
         if (monthsDifference > 0) {
             for (int i = 0; i < monthsDifference; i++) {
-                WaitMethodsProvider.getElementWhenClickable(wait, nextMonthIcon).click();
+                WaitMethodsProvider.getElementWhenClickableByLocator(wait, nextMonthIcon).click();
             }
         } else if (monthsDifference < 0) {
             long absOfDifferenceValue = Math.abs(monthsDifference);
             for (int i = 0; i < absOfDifferenceValue; i++) {
-                WaitMethodsProvider.getElementWhenClickable(wait, previousMonthIcon).click();
+                WaitMethodsProvider.getElementWhenClickableByLocator(wait, previousMonthIcon).click();
             }
         }
     }
 
     public static void clickCorrectDay(LocalDate date, WebDriverWait wait) {
-        WaitMethodsProvider.getElementWhenClickable(wait, By.xpath
+        WaitMethodsProvider.getElementWhenClickableByLocator(wait, By.xpath
                 ("//*[@data-month='" + (date.getMonthValue() - 1) + "']//a[.='" + date.getDayOfMonth() + "']")).click();
         logger.info("Correct date selected on the calendar");
     }

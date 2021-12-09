@@ -35,7 +35,7 @@ public class TestBase {
         logger.info("Driver initialized with additional options");
         actions = new Actions(driver);
         logger.info("Action initialized");
-        Long waitValue = Long.valueOf(PropertiesManager.getStringProperty("waitValue"));
+        int waitValue = Integer.parseInt(PropertiesManager.getStringProperty("waitValue"));
         wait = new WebDriverWait(driver, Duration.ofSeconds(waitValue));
         logger.info("WaitDriver with " + waitValue + "secs value initialized");
     }
