@@ -26,6 +26,21 @@ public class SimpleMethodProvider {
         logger.info("Table search method done");
     }
 
+    public static void tableSearchPOP(WebDriver driver) {
+        List<WebElement> tableRows = driver.findElements(By.cssSelector("tbody tr"));
+
+        for (WebElement mountain : tableRows) {
+            String rank = mountain.findElement(By.cssSelector("th")).getText();
+            String peak = mountain.findElement(By.cssSelector("td")).getText();
+            String mountainRange = mountain.findElement(By.cssSelector(":nth-child(3)")).getText();
+            int mountainHeight = Integer.parseInt(mountain.findElement(By.cssSelector(":nth-child(5)")).getText());
+            if ((mountain.getText().contains("Switzerland")) && (mountainHeight > 4000)) {
+                System.out.println("Rank: " + rank + " | Peak:  " + peak + " | Mountain range:  " + mountainRange);
+            }
+        }
+        logger.info("Table search method done");
+    }
+
     public static void windowSwitch(WebDriver driver) {
         for (String winHandle : driver.getWindowHandles()) {
             driver.switchTo().window(winHandle);
